@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.7.3 on linux)" generated="20190804 20:09:33.753" rpa="false">
+<suite id="s1" name="Rest-Api" source="/home/sebas/PycharmProjects/WebService/Tests/rest-api.robot">
+<test id="s1-t1" name="System must make a get request">
+<kw name="Get Request" library="Api">
+<kw name="Create Session" library="ExtendedRequestsLibrary">
+<doc>Create and return a HTTP session object to a server.</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:3000</arg>
+</arguments>
+<msg timestamp="20190804 20:09:33.823" level="INFO">Creating Session using : alias=localhost, url=http://localhost:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190804 20:09:33.823" endtime="20190804 20:09:33.823"></status>
+</kw>
+<kw name="Get Request" library="Api">
+<arguments>
+<arg>localhost</arg>
+<arg>/posts</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190804 20:09:33.824" level="FAIL">Keyword 'Api.Get Request' expected 0 arguments, got 2.</msg>
+<status status="FAIL" starttime="20190804 20:09:33.824" endtime="20190804 20:09:33.824"></status>
+</kw>
+<status status="FAIL" starttime="20190804 20:09:33.823" endtime="20190804 20:09:33.824"></status>
+</kw>
+<doc>Make a Get Request to the json-server</doc>
+<tags>
+<tag>Webservices</tag>
+</tags>
+<status status="FAIL" starttime="20190804 20:09:33.823" endtime="20190804 20:09:33.824" critical="yes">Keyword 'Api.Get Request' expected 0 arguments, got 2.</status>
+</test>
+<test id="s1-t2" name="System must make a post request">
+<kw name="Post Request" library="Api">
+<kw name="Create Session" library="ExtendedRequestsLibrary">
+<doc>Create and return a HTTP session object to a server.</doc>
+<arguments>
+<arg>localhost</arg>
+<arg>http://localhost:3000</arg>
+</arguments>
+<msg timestamp="20190804 20:09:33.824" level="INFO">Creating Session using : alias=localhost, url=http://localhost:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20190804 20:09:33.824" endtime="20190804 20:09:33.825"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>id=2</arg>
+<arg>title=jsonserver</arg>
+<arg>author=sebas</arg>
+</arguments>
+<assign>
+<var>&amp;{data}</var>
+</assign>
+<msg timestamp="20190804 20:09:33.825" level="INFO">&amp;{data} = { id=2 | title=jsonserver | author=sebas }</msg>
+<status status="PASS" starttime="20190804 20:09:33.825" endtime="20190804 20:09:33.825"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>content-type=application/json</arg>
+</arguments>
+<assign>
+<var>&amp;{header}</var>
+</assign>
+<msg timestamp="20190804 20:09:33.825" level="INFO">&amp;{header} = { content-type=application/json }</msg>
+<status status="PASS" starttime="20190804 20:09:33.825" endtime="20190804 20:09:33.825"></status>
+</kw>
+<kw name="Post Request" library="Api">
+<arguments>
+<arg>localhost</arg>
+<arg>/posts</arg>
+<arg>json=${data}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20190804 20:09:33.826" level="FAIL">Keyword 'Api.Post Request' expected 0 arguments, got 4.</msg>
+<status status="FAIL" starttime="20190804 20:09:33.825" endtime="20190804 20:09:33.826"></status>
+</kw>
+<status status="FAIL" starttime="20190804 20:09:33.824" endtime="20190804 20:09:33.826"></status>
+</kw>
+<doc>Make a Post Request to the json-server</doc>
+<tags>
+<tag>Webservices</tag>
+</tags>
+<status status="FAIL" starttime="20190804 20:09:33.824" endtime="20190804 20:09:33.826" critical="yes">Keyword 'Api.Post Request' expected 0 arguments, got 4.</status>
+</test>
+<doc>Testing webservices using https://github.com/typicode/json-server</doc>
+<status status="FAIL" starttime="20190804 20:09:33.754" endtime="20190804 20:09:33.826"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2">Critical Tests</stat>
+<stat pass="0" fail="2">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="2">Webservices</stat>
+</tag>
+<suite>
+<stat pass="0" fail="2" id="s1" name="Rest-Api">Rest-Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
