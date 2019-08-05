@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation  Testing webservices using https://github.com/typicode/json-server
-Resource  ../Resources/Api.robot
+Library    ExtendedRequestsLibrary
 
 *** Variables ***
 
-${idnumber}=  4
+${idnumber}=  5
 
 *** Test Cases ***
 System must make a get request
